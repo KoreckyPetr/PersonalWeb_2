@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+
+html, body {
+    background: black url(img/keyboard.jpg) center center fixed no-repeat;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Roboto Mono', monospace;
+    color: #ffffff;
+}
+.error {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.error h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#form-error {
+    color: #ff0000;
+    font-weight: bolder;
+    display: none;
+}
+.main {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+section {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 100vh;
+    scroll-snap-align: start;
+}
+/*-- Navigation --*/
+.navbar {
+    color: #ffffff !important;
+}
+#logo {
+    transition: all .8s ease;
+}
+#logo:hover {
+    transform:scale(1.2);
+}
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, .9);
+}
+.dropdown-menu a {
+    color: #ffffff !important;
+    transition: all .8s ease;
+}
+.dropdown-menu a:hover {
+    background-color: transparent !important;
+    transform:scale(1.2);
+}
+/*-- Introduce --*/
+.introduce h1, .about h1 {
+    font-size: 500%;
+}
+/*-- Portfolio --*/
+.portfolio {
+    position: relative;
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
+}
+.portfolio-body {
+    position: absolute;
+    overflow: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.card {
+    margin: 0 auto;
+    max-width: 700px;
+    background-color: rgba(0, 0, 0, .8);
+}
+.btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+#about {
+    padding: 0 5rem;
+    background-color: rgba(0, 0, 0, .6);
+}
+.about {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, .8);
+}
+.about p {
+    font-size: 200%;
+}
+.about .btn,
+.contact-form .btn {
+    font-size: 150%;
+    background-color: #ffffff;
+    color: #000000;
+}
+.about .btn:hover,
+.contact-form .btn:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: #ffffff;
+}
+#connect {
+    background-color: rgba(0, 0, 0, .6);
+}
+.connect {
+    position: relative;
+}
+.map {
+    width: 80%;
+    height: 50vh;
+}
+.form-field input,
+.form-field textarea {
+    margin: 0 auto;
+    width: 70%;
+    display: block;
+}
+.contact h3 {
+    font-size: 300%;
+}
+.contact a,
+.contact p,
+.get-in-touch label {
+    text-decoration: none;
+    font-size: 150%;
+    color: #ffffff;
+}
+.contact .bi {
+    padding-right: 1rem;
+}
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.footer h3 {
+    margin: 0;
+    padding: .2rem;
+    display: inline-block;
+    font-size: 100%;
+    background-color: #000000;
+}
+
+/*---Media Queries --*/
+@media (max-width: 1700px) {
+    .sticky-top {
+        background-color: #000000;
+    }
+    .portfolio-body {
+        transform: translate(-50%, -50%);
+    }
+    #connect {
+        position: relative;
+        overflow: auto;
+    }
+    .connect {
+        position: absolute;
+        top: 100px;
+        left: 0;
+    }
+    .form-field {
+        padding-bottom: .75rem !important;
+    }
+}
+@media (max-width: 1200px) {
+    .sticky-top {
+        background-color: #000000;
+    }
+    .portfolio-body {
+        top: 100px;
+        transform: translate(-50%, 0);
+    }
+    #connect {
+        position: relative;
+        overflow: auto;
+    }
+    .connect {
+        position: absolute;
+        top: 100px;
+        left: 0;
+    }
+    .form-field {
+        padding-bottom: .5rem !important;
+    }
+}
+@media (max-width: 992px) {
+    
+}
+@media (max-width: 768px) {
+    .navbar {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+    .navbar-collapse {
+        order: 5 !important;
+    }
+    .portfolio {
+        overflow: auto;
+    }
+    .introduce h1, .about h1 {
+        font-size: 300%;
+    }
+    .about p {
+        font-size: 150%;
+    }
+}
+@media (max-width: 576px) {
+    .introduce span {
+        display: block;
+        padding-top: 1rem;
+    }
+    #about {
+        padding: 0 1rem;
+        background-color: rgba(0, 0, 0, .8);
+    }
+    .about h1 {
+        font-size: 200%;
+    }
+    .about p {
+        font-size: 100%;
+    }
+    .contact div {
+        padding: .5rem .5rem;
+    }
+    .map {
+        width: 100%;
+        height: 45vh;
+    }
+}
+@media (max-width: 280px) {
+    .introduce h1 {
+        font-size: 200%;
+    }
+    .introduce p {
+        font-size: 110% !important;
+    }
+    .about h1 {
+        font-size: 150%;
+    }
+    .about p {
+        font-size: 80%;
+    }
+    .contact h3 {
+        font-size: 200%;
+    }
+    .contact a,
+    .contact p {
+        font-size: 100%;
+    }
+    .label {
+        font-size: 100% !important;
+    }
+}
+@media (max-height: 640px) {
+    .introduce {
+        margin-top: 65px !important;
+    }
+    .introduce h1 {
+        font-size: 250%;
+    }
+    .introduce p {
+        font-size: 100% !important;
+    }
+    .introduce lord-icon {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .about h1 {
+        font-size: 150%;
+    }
+    .about p {
+        font-size: 80%;
+    }
+    .contact h3 {
+        font-size: 200%;
+    }
+    .contact a,
+    .contact p {
+        font-size: 120%;
+    }
+    .label {
+        font-size: 100% !important;
+    }
+}
+@media (max-height: 568px) {
+    .introduce {
+        margin-top: 65px !important;
+    }
+    .introduce h1 {
+        font-size: 250%;
+    }
+    .introduce p {
+        font-size: 100% !important;
+    }
+    .introduce lord-icon {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .about h1 {
+        font-size: 150%;
+    }
+    .about p {
+        font-size: 80%;
+    }
+    .contact h3 {
+        font-size: 200%;
+    }
+    .contact a,
+    .contact p {
+        font-size: 120%;
+    }
+    .label {
+        font-size: 100% !important;
+    }
+}
+
+
+/*--- Hidden ScrollBar --*/
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/*---Firefox Bug Fix --*/
+.carousel-item {
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less then 576px)
+No media query since this is the default in Bootstrap.
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+/*
+--- Fixed Background Image --
+figure {
+    position: relative;
+    width: 100%;
+    height: 60%;
+    margin: 0!important;
+}
+.fixed-wrap {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#fixed {
+    background-image: url('img/mac.jpg');
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    will-change: transform;
+}
+*/
+
+/* 
+<h1 class="logo my-0">KP</h1>
+
+.logo {
+    font-family: 'Major Mono Display', monospace;
+}
+
+<a class="btn btn-outline-light fs-2 mt-5" href="#portfolio" role="button">HERE</a>
+*/
