@@ -1,9 +1,3 @@
-// reCaptcha
-function onSubmit(token) {
-    document.getElementById("demo-form").submit();
-  }
-
-
 // Listen for submit
 document.querySelector("#form").addEventListener("submit", submitForm);
 
