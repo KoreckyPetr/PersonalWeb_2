@@ -115,22 +115,24 @@
                     <a href=“mailto:korec02@gmail.com“><i class="bi bi-envelope fa-lg"></i>korec02@gmail.com</a> <br>
                     <p>Brno, Czech Republic, 61200</p>
                     <div class="container-fluid padding">
-                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d35818.719732048536!2d-4.25169!3d55.868392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x488815562056ceeb%3A0x71e683b805ef511e!2sGlasgow%2C+Glasgow+City%2C+UK!5e0!3m2!1sen!2sus!4v1448625188752" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d166842.43414347337!2d16.437535405486084!3d49.20220931658114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4712943ac03f5111%3A0x400af0f6614b1b0!2sBrno!5e0!3m2!1scs!2scz!4v1632908036488!5m2!1scs!2scz" 
+                                frameborder="0" style="border:0" allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
                 <div class="contact col-md-12 col-lg-6">
                     <div class="get-in-touch container-fluid">
                         <h3>Get in touch</h3>
                         <div class="contact-form row">
-                            <form id="form" action="/" method="GET">
+                            <form id="form" action="" method="GET">
                                 <div class="form-field col-lg-12">
                                     <label for="name" class="label">Name</label>
-                                    <input id="name" class="input-text" type="text" placeholder="Your Full Name" required>
+                                    <input id="name" class="input-text" type="text" placeholder="Your Full Name">
                                     <span id="form-error">Please enter your full name!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="email" class="label">Email</label>
-                                    <input id="email" class="input-text" type="email" placeholder="Your Email" required>
+                                    <input id="email" class="input-text" type="email" placeholder="Your Email">
                                     <span id="form-error">Please enter correct email!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
@@ -139,16 +141,15 @@
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="phone" class="label">Contact number</label>
-                                    <input id="phone" class="input-text" type="text" placeholder="Your Phone Number">
+                                    <input id="phone" class="input-text" type="tel" placeholder="Your Phone Number">
                                     <span id="form-error">Please enter your correct phone number!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="message" class="label">Message</label>
-                                    <textarea name="message" id="message" class="input-text" cols="30" rows="5" placeholder="Your message..." required></textarea>
+                                    <textarea name="message" id="message" class="input-text" cols="30" rows="5" placeholder="Your message..."></textarea>
                                 </div>
                                 <div class="form-field col-lg-12">
-                                    <!-- <input class="btn btn-outline-secondary" type="submit" value="Send" name=""> -->
-                                    <button type="submit" class="btn btn-outline-secondary">Send</button>
+                                    <button id="submit" type="submit" class="btn btn-outline-secondary">Send</button>
                                 </div>
                             </form>
                         </div>
@@ -168,7 +169,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-<script defer src="script.js"></script>
+<!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
+<script src="smtp.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
