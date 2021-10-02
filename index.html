@@ -127,26 +127,28 @@
                             <form id="form" action="" method="GET">
                                 <div class="form-field col-lg-12">
                                     <label for="name" class="label">Name</label>
-                                    <input id="name" class="input-text" type="text" placeholder="Your Full Name">
-                                    <span id="form-error">Please enter your full name!</span>
+                                    <input id="name" class="input-text" type="text" placeholder="Petr Korecký">
+                                    <span id="nameError">Maximum 30 Character´s!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="email" class="label">Email</label>
-                                    <input id="email" class="input-text" type="email" placeholder="Your Email">
-                                    <span id="form-error">Please enter correct email!</span>
+                                    <input id="email" class="input-text" type="email" placeholder="email@email.com">
+                                    <span id="emailError">Please enter Valid email!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="company" class="label">Company name</label>
                                     <input id="company" class="input-text" type="text" placeholder="Only if you are...">
+                                    <span id="companyError">Maximum 30 Character´s!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="phone" class="label">Contact number</label>
-                                    <input id="phone" class="input-text" type="tel" placeholder="Your Phone Number">
-                                    <span id="form-error">Please enter your correct phone number!</span>
+                                    <input id="phone" class="input-text" type="tel" placeholder="+420 776102193">
+                                    <span id="phoneError">Please enter Valid phone number!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <label for="message" class="label">Message</label>
                                     <textarea name="message" id="message" class="input-text" cols="30" rows="5" placeholder="Your message..."></textarea>
+                                    <span id="messageError">Maximum 800 Character´s!</span>
                                 </div>
                                 <div class="form-field col-lg-12">
                                     <button id="submit" type="submit" class="btn btn-outline-secondary">Send</button>
@@ -155,13 +157,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer col-12 container-fluid p-0 text-start">
-                    <h3>&copy; 2021 Korecký Petr</h3>
-                </div>
             </div>
         </div>
     </section>
-    
+    <div class="footer col-12 container-fluid p-0 text-start">
+        <h3>&copy; 2021 Korecký Petr</h3>
+    </div>
 </div>
 <!-- Javascript Section -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -1,114 +1,101 @@
-// Listen for submit
-document.getElementById('submit').addEventListener('click', submitForm);
+// Listen For Submit
+document.getElementById('submit').addEventListener('click', (e) => {
+    e.preventDefault();
 
-function submitForm(e) {
+    checkInputs();
+});
 
-  // Get input Values
-    let name = document.getElementById('name');
-    let email = document.getElementById('email');
-    let company = document.getElementById('company');
-    let phone = document.getElementById('phone');
-    let message = document.getElementById('message');
+// Checking All Inputs      
+function checkInputs() {
+    const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3}$/im;
+    const nameValue = document.getElementById('name').value;
+    const emailValue = document.getElementById('email').value;
+    const companyValue = document.getElementById('company').value;
+    const phoneValue = document.getElementById('phone').value;
+    const messageValue = document.getElementById('message').value;
 
-    if (name.value === '' || name.value == null) {
-        alert('Name is required!')
+    // Name
+    if (nameValue === '' || nameValue == null || nameValue.length >=30) {
+        document.getElementById('nameError').style.display = 'inline-block';
+        //alert('NAME: Maximum 30 Characters!');
+        return;
+    }else {
+        document.getElementById('nameError').style.display = 'none';
+    }
+    // Email
+    if (emailValue.match(emailPattern))  {
+        document.getElementById('emailError').style.display = 'none';
+        //alert('Valid Type of email!');    /*only for test!*/
+    }else {
+        document.getElementById('emailError').style.display = 'inline-block';
+        //alert('Invalid Type of email!');
         return;
     }
-    else if (phone.value.length === '' || phone.value.length == null || phone.value.length >=12 || phone.value.length <=8) {
-        alert('Incorect phone number type!')
+    // Company
+    if (companyValue === '' || companyValue == null || companyValue.length >=30) {
+        document.getElementById('companyError').style.display = 'inline-block';
+        //alert('COMPANY: Maximum 30 Characters!');
+        return;
+    }else {
+        document.getElementById('companyError').style.display = 'none';
+    } 
+    // Phone
+    if (phoneValue.match(phonePattern)) {
+        document.getElementById('phoneError').style.display = 'none';
+        //alert('Valid Type of phone number!');   /*only for test!*/
+    }
+    else {
+        document.getElementById('phoneError').style.display = 'inline-block';
+        //alert('Invalid Type of phone number!');
         return;
     }
-    else if (message.value.length <= 0 || message.value.length >= 801) {
-        alert('Incorect message value! Maximum 800 characters.')
+    // Message
+    if (messageValue.length <= 0 || messageValue.length >= 801) {
+        document.getElementById('messageError').style.display = 'inline-block';
+        //alert('MESSAGE: Maximum 800 Characters!');
         return;
     }
-    sendEmail(name.value, email.value, company.value, phone.value, message.value);
+    else {
+        document.getElementById('messageError').style.display = 'none';
+    }
+    sendEmail(nameValue, emailValue, companyValue, phoneValue, messageValue);
     e.preventDefault();
 }
 
-// Send Email Info
-function sendEmail(name, email, company, phone, message){
+// Send Email Information
+function sendEmail(nameValue, emailValue, companyValue, phoneValue, messageValue){
     Email.send({
-        SecureToken : "c3540b4b-d124-430f-9ff8-a738adc75f23",
-        To : 'korec02@gmail.com',
-        From : "korec.firemni@gmail.com",
-        Subject : `${name} send you a message`,
-        Body : `Name: ${name} <br> Email: ${email} <br> Company: ${company} <br> Phone: ${phone} <br> Message: ${message}`, 
+    SecureToken : "c3540b4b-d124-430f-9ff8-a738adc75f23",
+    To : 'korec02@gmail.com',
+    From : "korec.firemni@gmail.com",
+    Subject : `${nameValue} send you a message`,
+    Body : `Name: ${nameValue} <br> Email: ${emailValue} <br> Company: ${companyValue} <br> 
+            Phone: ${phoneValue} <br> Message: ${messageValue}`, 
     }).then(message => {
-    
-            if (message== 'OK') {
-                        alert("Thank you, your email has been send.");
-                        document.querySelector("#form").reset();
-                        }
-                        else {
-                            console.error (message);
-                            alert("There is error at sending message.");
-                        }
-        });
-}
+        if (message== 'OK') {
+            alert("Thank you, your email has been send.");
+            document.querySelector("#form").reset();
+        }else {
+            alert("There is error at sending message.");
+            return;
+        }
+    });
+} 
+
+
+
+
+
+
+
+
+
+
 
 
 
 /*
-
-// Form Limits
-const form = document.getElementById('form')
-
-form.addEventListener('submit', (e) => {
-
-    let name = document.getElementById('name')
-    let phone = document.getElementById('phone')
-    let message = document.getElementById('message')
-
-    if (name.value === '' || name.value == null) {
-        alert('Name is required!')
-        return;
-    }
-    if (phone.value.length === '' || phone.value.length == null || phone.value.length >=12 || phone.value.length <=8) {
-        alert('Incorect phone number type!')
-        return;
-    }
-    if (message.value.length <= 0 || message.value.length >= 801) {
-        alert('Incorect message value! Maximum 800 characters.')
-        return;
-    }
-})
-
-
-
-.then((message) => alert("Email send successfully"))
-
-var name = $("#name").val();
-  var email = $("#email").val();
-  var company = $("#company").val();
-  var phone = $("#phone").val();
-  var message = $("#message").val();
-  
-  var Body= 'Name: '+name+'<br> Email: '+email+'<br> Company: '+company+'<br> Phone: '+phone+'<br> Message: '+message;
-  
-  }
-  
-      Email.send({
-          Host : "smtp.gmail.com",
-          Username : "korec02@gmail.com",
-          Password : "password",
-          To : 'korec02@gmail.com',
-          From : "korec02@gmail.com",
-          Subject : "New mail on contact form from:"+name,
-          Body : Body
-  }).then(
-      message => {
-  
-          if (message== 'OK') {
-                      alert("Thank you, your email has been send.");
-                      }
-                      else {
-                          console.error (message);
-                          alert("There is error at sending message.");
-                      }
-      }
-  );
-
 
 // Captcha 
 
