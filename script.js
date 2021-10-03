@@ -1,3 +1,21 @@
+// Generate Captcha CODE
+window.onload = function() {
+
+    var allValue = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y',
+                    'Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x',
+                    'y','z','1','2','3','4','5','6','7','8','9','0',]
+
+    let cVal1 = allValue[Math.floor(Math.random()*allValue.length)];
+    let cVal2 = allValue[Math.floor(Math.random()*allValue.length)];
+    let cVal3 = allValue[Math.floor(Math.random()*allValue.length)];
+    let cVal4 = allValue[Math.floor(Math.random()*allValue.length)];
+    let cVal5 = allValue[Math.floor(Math.random()*allValue.length)];
+    let cVal6 = allValue[Math.floor(Math.random()*allValue.length)];
+    let cValue = cVal1+cVal2+cVal3+cVal4+cVal5+cVal6;
+
+    captchaValue.innerHTML = cValue
+}
+
 // Listen For Submit
 document.getElementById('submit').addEventListener('click', (e) => {
     e.preventDefault();
@@ -14,6 +32,8 @@ function checkInputs() {
     const companyValue = document.getElementById('company').value;
     const phoneValue = document.getElementById('phone').value;
     const messageValue = document.getElementById('message').value;
+    const captchaValue = document.getElementById('captchaValue').innerText;
+    const inputCaptcha = document.getElementById('inputCaptcha').value;
 
     // Name
     if (nameValue === '' || nameValue == null || nameValue.length >=30) {
@@ -59,6 +79,18 @@ function checkInputs() {
     else {
         document.getElementById('messageError').style.display = 'none';
     }
+    // Captcha
+    if (inputCaptcha === '' || inputCaptcha == null || captchaValue != inputCaptcha) {
+        document.getElementById('captchaError').style.display = 'inline-block';
+        //alert('CAPTCHA: Incorrect Value!');   /*only for test!*/
+        return;
+    }
+    else {
+        captchaValue == inputCaptcha
+        document.getElementById('captchaError').style.display = 'none';
+        //alert('CAPTCHA: Correct Value!'); /*only for test!*/
+    }
+
     sendEmail(nameValue, emailValue, companyValue, phoneValue, messageValue);
     e.preventDefault();
 }
@@ -75,65 +107,11 @@ function sendEmail(nameValue, emailValue, companyValue, phoneValue, messageValue
     }).then(message => {
         if (message== 'OK') {
             alert("Thank you, your email has been send.");
-            document.querySelector("#form").reset();
+            window.location.reload();
+            //document.querySelector("#form").reset();
         }else {
             alert("There is error at sending message.");
             return;
         }
     });
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-// Captcha 
-
-var allValue = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y',
-                'Z','1','2','3','4','5','6','7','8','9','0',]
-
-var cVal1 = allValue[Math.floor(Math.random()*allValue.length)];
-var cVal2 = allValue[Math.floor(Math.random()*allValue.length)];
-var cVal3 = allValue[Math.floor(Math.random()*allValue.length)];
-var cVal4 = allValue[Math.floor(Math.random()*allValue.length)];
-var cVal5 = allValue[Math.floor(Math.random()*allValue.length)];
-var cVal6 = allValue[Math.floor(Math.random()*allValue.length)];
-
-var cValue = cVal1+cVal2+cVal3+cVal4+cVal5+cVal6;
-
-captchaValue.innerHTML = cValue
-
-thisValue = "";
-inputCaptcha.addEventListener('change', function() {
-    thisValue = inputCaptcha.value;
-    alert(thisValue)
-
-})
-
-submitBtn.addEventListener('click', function() {
-    if(cValue == thisValue){
-        alert('Valid');
-        document.logForm.submit();
-    }else if(inputCaptcha.value == ""){
-        alert('Invalid Captcha');
-    }else{
-        alert('Invalid Captcha');
-    }
-})
-
-<div class="captcha form-field col-lg-12">
-                                    <div id="captchaValue">SSSS</div>
-                                    <input id="inputCaptcha" type="text" name="" placeholder="Captcha">
-                                </div>
-
-*/

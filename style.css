@@ -24,7 +24,7 @@ html, body {
     padding: 0 !important;
     padding-bottom: .75rem !important;
 }
-#nameError, #emailError, #companyError, #phoneError, #messageError {
+#nameError, #emailError, #companyError, #phoneError, #messageError, #captchaError {
     /*display: inline-block !important;*/
     padding: 0 .5rem;
     border: .5px solid #c90000;
@@ -145,6 +145,10 @@ section {
 .form-field button {
     margin: 0 auto;
     display: block;
+    width: 160px;
+}
+.form-field span {
+    margin-top: .25rem !important;
 }
 .contact h3 {
     font-size: 300%;
@@ -165,15 +169,21 @@ section {
     display: inline-block;
 }
 #inputCaptcha {
-    max-width: 515px;
+    max-width: 75px;
 }
 #captchaValue {
-    width: 65px;
+    width: 75px;
     font-weight: bold;
     background-color: #ffffff;
     color: #000000;
     padding: 1px 2px;
     border: 1px solid lightgrey;
+    /* TEXT CANT COPY! */
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 /*-- Footer --*/
 .footer {
